@@ -1,3 +1,4 @@
+#Contributor:SABARINATH KR-Hand Detection & Landmarks Module
 import cv2
 import mediapipe as mp
 import math
