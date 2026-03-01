@@ -1,17 +1,20 @@
+# Contributor: Gouri - MediaPipe Configuration
 import cv2
 import mediapipe as mp
 import math
 
-mp_hands=mp.solutions.hands
-mp_draw=mp.solutions.drawing_utils
+mp_hands = mp.solutions.hands
+mp_draw = mp.solutions.drawing_utils
+mp_drawing_styles = mp.solutions.drawing_styles  
 
-hands=mp_hands.Hands(
-    static_image_mode=False,
-    max_num_hands=1,
-    model_complexity=0,
-    min_detection_confidence=0.6,
-    min_tracking_confidence=0.6
+hands = mp_hands.Hands(
+    static_image_mode=False,          # Video stream (real-time)
+    max_num_hands=1,                  # Single hand for volume control
+    model_complexity=1,               # Better accuracy than 0 (balanced performance)
+    min_detection_confidence=0.7,     # Higher threshold = fewer false detections
+    min_tracking_confidence=0.7       # More stable tracking
 )
+
 cap=cv2.VideoCapture(0)
 cap.set(3,640)
 cap.set(4,480)
