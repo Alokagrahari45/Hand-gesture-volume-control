@@ -1,3 +1,4 @@
+#Contributor:SABARINATH KR-Hand Detection & Landmarks Module
 # Contributor: Gokul - Video Capture
 #contributor: Alok - setup and initialization module
 import cv2
