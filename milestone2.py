@@ -6,6 +6,7 @@
 
 # Contributor: Gauri - MediaPipe Configuration
 
+# Contributor: Shubh Sahu - Gesture Logic , Display And Exit Control
 import cv2
 import mediapipe as mp
 import math
