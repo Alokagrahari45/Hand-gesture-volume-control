@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Gesture Volume Control</title>
+
+<link rel="stylesheet" href="/static/style.css">
+
+</head>
+
+<body>
+
+<h1>Gesture Volume Control</h1>
+
+<div class="buttons">
+
+<button onclick="startCamera()">Start</button>
+<button onclick="stopCamera()">Stop</button>
+
+</div>
+
+<h2>Webcam Preview</h2>
+
+<div class="cam">
+
+<img id="video" width="500">
+
+</div>
+
+<h2>Volume : <span id="vol">0</span>%</h2>
+
+<div class="bar">
+
+<div id="progress"></div>
+
+</div>
+
+<script>
+
+function startCamera(){
+
+fetch("/start")
+
+.then(response => response.json())
+
+.then(data => {
+
+document.getElementById("video").src="/video"
+
+})
+
+}
+
+function stopCamera(){
+
+fetch("/stop")
+
+document.getElementById("video").src=""
+
+}
+
+setInterval(()=>{
+
+fetch("/volume")
+
+.then(res=>res.json())
+
+.then(data=>{
+
+document.getElementById("vol").innerText=data.volume
+
+document.getElementById("progress").style.width=data.volume+"%"
+
+})
+
+},500)
+
+</script>
+
+</body>
+</html>
